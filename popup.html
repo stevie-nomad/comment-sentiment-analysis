@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Comment Analyzer</title>
+    <style>
+        body {
+            width: 400px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #analyzeBtn {
+            background-color: #1976d2;
+        }
+
+        #analyzeBtn:hover:not(:disabled) {
+            background-color: #1565c0;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #cc0000;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        #status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .progress {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #ff0000;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .stats {
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .sentiment-stats {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .sentiment-stats h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .sentiment-bar {
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+
+        .sentiment-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .positive-fill { background-color: #4caf50; }
+        .neutral-fill { background-color: #9e9e9e; }
+        .negative-fill { background-color: #f44336; }
+
+        .sentiment-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .download-btn {
+            margin-top: 15px;
+            background-color: #4caf50 !important;
+        }
+
+        .download-btn:hover:not(:disabled) {
+            background-color: #388e3c !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align:center">Youtube Comment Analyzer</h2>
+        <div class="button-container">
+            <button id="scrapeBtn">Scrape Comments</button>
+            <button id="analyzeBtn" disabled>Analyze Comments</button>
+        </div>
+        <div id="status"></div>
+        <div class="progress">
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="stats">
+                Comments scraped: <span id="commentCount">0</span>
+            </div>
+        </div>
+        <div class="sentiment-stats">
+            <h3>Sentiment Analysis</h3>
+            <div class="sentiment-section">
+                <div class="sentiment-label">
+                    <span>Positive</span>
+                    <span class="positive-count"></span>
+                </div>
+                <div class="sentiment-bar">
+                    <div class="sentiment-fill positive-fill"></div>
+                </div>
+            </div>
+            <div class="sentiment-section">
+                <div class="sentiment-label">
+                    <span>Neutral</span>
+                    <span class="neutral-count"></span>
+                </div>
+                <div class="sentiment-bar">
+                    <div class="sentiment-fill neutral-fill"></div>
+                </div>
+            </div>
+            <div class="sentiment-section">
+                <div class="sentiment-label">
+                    <span>Negative</span>
+                    <span class="negative-count"></span>
+                </div>
+                <div class="sentiment-bar">
+                    <div class="sentiment-fill negative-fill"></div>
+                </div>
+            </div>
+            <div class="average-score" style="margin-top: 10px; color: #666;">
+                Average Sentiment: <span id="averageScore">0</span>%
+            </div>
+            <button id="downloadBtn" class="download-btn" disabled>Download Analysis</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 
