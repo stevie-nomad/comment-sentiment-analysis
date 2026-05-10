@@ -23,14 +23,17 @@ This Chrome extension analyzes comments on web pages to identify subjects and th
 
 1. Navigate to any webpage with comments
 2. Click 'Scrape Comments' to scrape the comments.
- ![Screenshot](Screenshots/Screenshot1.png)   
-3. Once the scraping is finished, click 'Analyze Comments'
-  ![Screenshot](Screenshots/Screenshot2.png)   
-4. The popup will show:
+<img width="1844" height="965" alt="Screenshot1" src="https://github.com/user-attachments/assets/2700e20d-123e-444c-9cb5-0f53fdc21f35" />
+  
+4. Once the scraping is finished, click 'Analyze Comments'
+<img width="1844" height="965" alt="Screenshot2" src="https://github.com/user-attachments/assets/5cea12f1-9d44-4c15-8f5c-043207163a88" />
+   
+6. The popup will show:
    - Sentiment distribution for each subject whether positive,   negative or neutral.
    - Total number of analyzed comments
- ![Screenshot](Screenshots/Screenshot3.png)   
-5. To download the analysis, click 'Download Analysis' as CSV file.
+<img width="1844" height="965" alt="Screenshot3" src="https://github.com/user-attachments/assets/9bcc443c-e60e-46c4-9e9b-5a185a2029a8" />
+   
+7. To download the analysis, click 'Download Analysis' as CSV file.
 
 ## Technical Details
 
